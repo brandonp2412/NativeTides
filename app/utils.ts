@@ -15,6 +15,7 @@ export const styles = StyleSheet.create({
     height: 300,
     width: 300,
     marginBottom: 16,
+    marginTop: 16,
   },
   input: {
     height: 50,
