@@ -2,34 +2,26 @@ import { useState } from "react";
 import { Button, Image, View } from "react-native";
 import { styles } from "./utils";
 import SoundPlayer from "react-native-sound-player";
+import MusicBars from "./music-bars";
 
 export default function State() {
-  const [isPlaying, setIsPlaying] = useState<boolean | undefined>();
+  const [isPlaying, setIsPlaying] = useState(false);
 
+  // TODO: Make this toggle the music on/off
   function toggleMusic() {
-    if (isPlaying === true) {
-      console.log("Pausing...");
-      SoundPlayer.pause();
-      setIsPlaying(false);
-    } else if (isPlaying === undefined) {
-      console.log("Playing...");
-      SoundPlayer.playAsset(require("../assets/aura.mp3"));
-      setIsPlaying(true);
-    } else {
-      console.log("Resuming...");
-      SoundPlayer.resume();
-      setIsPlaying(true);
-    }
+    SoundPlayer.playAsset(require("../assets/aura.mp3"));
+    setIsPlaying(true);
   }
 
   return (
     <View>
-      {/* TODO: Factor out the onPress function */}
       <Button title="Toggle music" onPress={toggleMusic} />
       <Image
         style={styles.image}
         source={require("../assets/images/cool-capybara.webp")}
       />
+
+      {isPlaying && <MusicBars />}
     </View>
   );
 }
