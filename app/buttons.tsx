@@ -8,7 +8,7 @@ export default function Buttons() {
   }
 
   return (
-    <View>
+    <View style={styles.center}>
       {/* TODO: Change this to a different image */}
       <Image
         source={require("../assets/images/cat.png")}

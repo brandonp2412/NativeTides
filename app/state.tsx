@@ -14,7 +14,7 @@ export default function State() {
   }
 
   return (
-    <View>
+    <View style={styles.center}>
       <Button title="Toggle music" onPress={toggleMusic} />
       <Image
         style={styles.image}
